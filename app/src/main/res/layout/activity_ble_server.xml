@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EFEFEF"
+    tools:context=".View.BleServerActivity">
+
+    <com.dong.bluetoothtool.Widget.BlackBoardView
+        android:id="@+id/blackboard"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        android:background="#000000"
+        app:layout_constraintBottom_toTopOf="@id/data_anchor"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/et_server_uuid"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="服务UUID"
+        android:lines="1"
+        android:singleLine="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/btn_server_uuid_random" />
+
+    <Button
+        android:id="@+id/btn_server_uuid_random"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="随机服务"
+        app:layout_constraintBottom_toBottomOf="@id/et_server_uuid"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <EditText
+        android:id="@+id/et_characteristic_uuid"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="特性UUID"
+        android:maxLines="1"
+        android:singleLine="true"
+        app:layout_constraintBottom_toTopOf="@id/et_server_uuid"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/btn_characteristic_uuid_random" />
+
+    <Button
+        android:id="@+id/btn_characteristic_uuid_random"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="随机特性"
+        app:layout_constraintBottom_toBottomOf="@+id/et_characteristic_uuid"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <CheckBox
+        android:id="@+id/cb_characteristic_notify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notify"
+        app:layout_constraintLeft_toRightOf="@id/cb_characteristic_write_no_response"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/cb_characteristic_readable" />
+
+    <CheckBox
+        android:id="@+id/cb_characteristic_readable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="Read"
+        app:layout_constraintBottom_toTopOf="@id/et_characteristic_uuid"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/cb_characteristic_writable" />
+
+    <CheckBox
+        android:id="@+id/cb_characteristic_writable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Write"
+        app:layout_constraintBottom_toTopOf="@id/et_characteristic_uuid"
+        app:layout_constraintLeft_toRightOf="@id/cb_characteristic_readable"
+        app:layout_constraintRight_toLeftOf="@id/cb_characteristic_write_no_response" />
+
+    <CheckBox
+        android:id="@+id/cb_characteristic_write_no_response"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Write No Response"
+        app:layout_constraintLeft_toRightOf="@id/cb_characteristic_writable"
+        app:layout_constraintRight_toLeftOf="@id/cb_characteristic_notify"
+        app:layout_constraintTop_toTopOf="@id/cb_characteristic_readable" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <Button
+        android:id="@+id/btn_add_server"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="新增服务"
+        app:layout_constraintBottom_toTopOf="@id/cb_characteristic_readable"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@id/guideline2" />
+
+    <Button
+        android:id="@+id/btn_add_characteristic"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="向服务新增特性"
+        app:layout_constraintBottom_toTopOf="@id/cb_characteristic_writable"
+        app:layout_constraintLeft_toLeftOf="@id/guideline2"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/btn_start_server"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="开启服务端"
+        app:layout_constraintBottom_toTopOf="@id/btn_check_server"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@id/guideline2" />
+
+    <Button
+        android:id="@+id/btn_check_device"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="查询设备列表"
+        app:layout_constraintLeft_toLeftOf="@id/guideline2"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btn_start_server" />
+
+    <Button
+        android:id="@+id/btn_check_server"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="查询服务列表"
+        app:layout_constraintBottom_toTopOf="@id/btn_add_server"
+        app:layout_constraintLeft_toLeftOf="@id/guideline2"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/btn_start_adv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="开启设备广播"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@id/guideline2"
+        app:layout_constraintTop_toBottomOf="@id/btn_start_server" />
+
+    <LinearLayout
+        android:id="@+id/data_anchor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/btn_start_server">
+
+        <EditText
+            android:id="@+id/et_data"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:background="#ffffff"
+            android:gravity="start"
+            android:hint="只能回复最新的请求"
+            android:lines="3"
+            android:paddingLeft="4dp"
+            android:paddingTop="4dp" />
+
+        <Button
+            android:id="@+id/btn_response"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="回复" />
+
+        <Button
+            android:id="@+id/btn_notify"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="通知" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

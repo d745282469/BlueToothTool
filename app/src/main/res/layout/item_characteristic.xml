@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingRight="10dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="?android:attr/selectableItemBackground">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="特性："
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textSize="@dimen/txt_normal"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/characteristic_anchor"/>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="特性UUID"
+        android:textSize="@dimen/txt_normal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/characteristic_anchor"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/tv_characteristic_uuid"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="("
+        android:id="@+id/left_anchor"
+        app:layout_constraintLeft_toLeftOf="@id/tv_characteristic_uuid"
+        app:layout_constraintTop_toBottomOf="@id/tv_characteristic_uuid"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="特性的属性，如可读、可写等"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:id="@+id/tv_characteristic_attr"
+        app:layout_constraintLeft_toRightOf="@id/left_anchor"
+        app:layout_constraintTop_toBottomOf="@id/tv_characteristic_uuid"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=")"
+        app:layout_constraintTop_toBottomOf="@id/tv_characteristic_uuid"
+        app:layout_constraintLeft_toRightOf="@id/tv_characteristic_attr"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

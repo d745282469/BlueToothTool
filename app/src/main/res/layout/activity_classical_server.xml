@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EFEFEF"
+    tools:context=".View.ClassicalServerActivity">
+
+    <LinearLayout
+        android:id="@+id/name_anchor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="服务端名称：" />
+
+        <EditText
+            android:id="@+id/classical_server_et_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="随便填，没啥用"
+            android:maxLines="1"
+            android:text="@string/app_name" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/uuid_anchor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/name_anchor">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="UUID：" />
+
+        <EditText
+            android:id="@+id/classical_server_et_uuid"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="不知道就随机"
+            android:text="10000000-0000-0000-0000-000000000000" />
+
+        <Button
+            android:id="@+id/classical_server_btn_uuid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="随机" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/classical_server_btn_switch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="开启服务端"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/guideline"
+        app:layout_constraintBottom_toTopOf="@id/uuid_anchor" />
+
+    <Button
+        android:id="@+id/classical_server_btn_disconnect"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="断开客户端"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintLeft_toRightOf="@id/guideline"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/classical_server_btn_switch"/>
+
+    <LinearLayout
+        android:id="@+id/data_anchor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/classical_server_btn_switch">
+
+        <EditText
+            android:id="@+id/classical_server_et_data"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:lines="2"
+            android:layout_weight="1"
+            android:background="#ffffff"
+            android:gravity="start"
+            android:hint="要发送的内容"
+            android:paddingLeft="4dp"
+            android:paddingTop="4dp" />
+
+        <Button
+            android:id="@+id/classical_server_btn_send"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:text="发送"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/classical_server_tv_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000000"
+        android:paddingLeft="4dp"
+        android:paddingTop="4dp"
+        android:paddingRight="4dp"
+        android:scrollbars="vertical"
+        android:text=""
+        android:textColor="#ffffff"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.dong.bluetoothtool.Widget.BlackBoardView
+        android:id="@+id/classical_server_blackboard"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        android:background="#000000"
+        android:paddingTop="8dp"
+        app:layout_constraintBottom_toTopOf="@id/data_anchor"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="192dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

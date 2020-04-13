@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.BleClientActivity"
+    android:background="#EFEFEF">
+
+    <Button
+        android:id="@+id/btn_connect_server"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="连接服务端"
+        app:layout_constraintBottom_toTopOf="@id/et_characteristic_uuid"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@id/guideline3" />
+
+    <Button
+        android:id="@+id/btn_check_server"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="查询服务列表"
+        app:layout_constraintTop_toTopOf="@id/btn_connect_server"
+        app:layout_constraintLeft_toLeftOf="@id/guideline3"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <com.dong.bluetoothtool.Widget.BlackBoardView
+        android:id="@+id/blackboard"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        android:background="#000000"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/data_anchor"
+        />
+
+    <EditText
+        android:id="@+id/et_server_uuid"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="服务UUID"
+        android:singleLine="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <EditText
+        android:id="@+id/et_characteristic_uuid"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="特性UUID"
+        android:singleLine="true"
+        app:layout_constraintBottom_toTopOf="@id/et_server_uuid"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/data_anchor"
+        app:layout_constraintBottom_toTopOf="@id/btn_get_chara_data">
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:lines="3"
+            android:hint="向特性写入内容"
+            android:layout_weight="1"
+            android:background="#ffffff"
+            android:id="@+id/et_data"
+            android:gravity="start"
+            android:paddingTop="4dp"
+            android:paddingLeft="4dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="写入"
+            android:textSize="18sp"
+            android:id="@+id/btn_send"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="获取特性内容"
+        android:id="@+id/btn_get_chara_data"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@id/guideline3"
+        app:layout_constraintBottom_toTopOf="@id/btn_connect_server"/>
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="注册特性通知"
+        app:layout_constraintLeft_toLeftOf="@id/guideline3"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/btn_reg_notify"
+        app:layout_constraintTop_toTopOf="@id/btn_get_chara_data"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

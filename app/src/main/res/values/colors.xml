@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+<!--    字体颜色资源-->
+    <color name="txt_normal">#000000</color>
+    <color name="txt_error">#FF0000</color>
+    <color name="txt_warn">#CDDC39</color>
+    <color name="txt_backboard_normal">#ffffff</color>
+
+<!--    分割线颜色-->
+    <color name="line_normal">#dfdfdf</color>
+</resources>
